@@ -1,0 +1,228 @@
+{
+  "cases": [
+    {
+      "capture_group": "case-001",
+      "category": "healthy",
+      "id": "case-001",
+      "input": "inputs/case-001.json",
+      "input_sha256": "067be2cae93be2cb7e689b0b8fb9496a9d71b4ff3bc568d7b5699f1301ea88d5",
+      "label": "labels/case-001.json",
+      "label_sha256": "0e3168b863cad6b0146d291946a05259e309d6c7151dc350140964ee46b82977",
+      "split": "dev",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses."
+    },
+    {
+      "capture_group": "case-002",
+      "category": "healthy",
+      "id": "case-002",
+      "input": "inputs/case-002.json",
+      "input_sha256": "ea384b0251ec07624988455308691272adb967506c282dc9fb336019218f4232",
+      "label": "labels/case-002.json",
+      "label_sha256": "1a36963401df37796b685918dc8a1e2da996cdbdddc1b5dba245bd9810dbb4e3",
+      "split": "dev",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses."
+    },
+    {
+      "capture_group": "case-003",
+      "category": "healthy",
+      "id": "case-003",
+      "input": "inputs/case-003.json",
+      "input_sha256": "0487a2b2091c2a6b6370493ec70fd4bf705dcdee82daa4584085f209f13d066e",
+      "label": "labels/case-003.json",
+      "label_sha256": "2e28fc93c85272e6dabdf735a0469ba539b140680480e48e18dd66f4255b4618",
+      "split": "test",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses."
+    },
+    {
+      "capture_group": "case-004",
+      "category": "healthy",
+      "id": "case-004",
+      "input": "inputs/case-004.json",
+      "input_sha256": "52d8b77de55445dab7dd9abb7c0cd767aa416a0e61c108011e07cd1c6d4060bb",
+      "label": "labels/case-004.json",
+      "label_sha256": "cc586cea3e0922715a581716e8c48736e1f082cc5817f1eb3c9cffd859cb5eed",
+      "split": "test",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses."
+    },
+    {
+      "capture_group": "case-005",
+      "category": "timeout",
+      "id": "case-005",
+      "input": "inputs/case-005.json",
+      "input_sha256": "fee37763517c2b14dc193cfb1516c13a12dfabb47f2172ad3d77c945d73d0936",
+      "label": "labels/case-005.json",
+      "label_sha256": "2881de05c495f00a0f2f3c95f7fa8408a3e5dda7024906314b020c1904bc8e67",
+      "split": "dev",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses."
+    },
+    {
+      "capture_group": "case-006",
+      "category": "timeout",
+      "id": "case-006",
+      "input": "inputs/case-006.json",
+      "input_sha256": "e30f8f72e22510acd6f63c152dd1a3374d1ea2c87ec35627e804b508e41d3ef6",
+      "label": "labels/case-006.json",
+      "label_sha256": "5ff220ccf8642d4e59eb472e3a4bcd8c5b29561eee1d8114fc8bc94b0091bfdb",
+      "split": "dev",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses."
+    },
+    {
+      "capture_group": "case-007",
+      "category": "timeout",
+      "id": "case-007",
+      "input": "inputs/case-007.json",
+      "input_sha256": "46cbe75afcd70060c3e331c7abdda09113446512a842ebd7b5c27b1cb508ae70",
+      "label": "labels/case-007.json",
+      "label_sha256": "15ea63552e25ff0fd710de2bd429c8f40500d61d3ec7b04d2e23d3f5aa266c39",
+      "split": "test",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses."
+    },
+    {
+      "capture_group": "case-008",
+      "category": "timeout",
+      "id": "case-008",
+      "input": "inputs/case-008.json",
+      "input_sha256": "00eaf4926c7ad67481fddfe513560f20f84c5e64c7104c3f6a025dc3c2b37dcf",
+      "label": "labels/case-008.json",
+      "label_sha256": "e6c50aee899c34df1547c23b91a488abebf60c89b0a760f61ba63ed05563c0c1",
+      "split": "test",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses."
+    },
+    {
+      "capture_group": "case-009",
+      "category": "http-error",
+      "id": "case-009",
+      "input": "inputs/case-009.json",
+      "input_sha256": "8383d6eea656a63705e2c1631d65540aadda34bbb1a707c7be3aeeea81d8003b",
+      "label": "labels/case-009.json",
+      "label_sha256": "e0b8a1100daff26e43f24e9fc3b81b279728a7cefb4d4699ea1bd9c1a4e0cd4d",
+      "split": "dev",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses."
+    },
+    {
+      "capture_group": "case-010",
+      "category": "http-error",
+      "id": "case-010",
+      "input": "inputs/case-010.json",
+      "input_sha256": "a16242ed06a0c3770e3e4f83a001dd08379f14a98c5d05de9a9291a2d25f6432",
+      "label": "labels/case-010.json",
+      "label_sha256": "58ceeb2ba90a6ae6a6a302bc94c54965dce982d6f15280ec19162bdd62e87596",
+      "split": "dev",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses."
+    },
+    {
+      "capture_group": "case-011",
+      "category": "http-error",
+      "id": "case-011",
+      "input": "inputs/case-011.json",
+      "input_sha256": "2c4a52a2e2d0e62d38e94cac339b5bcc5dca4393d0059b6fa39639a7eac01743",
+      "label": "labels/case-011.json",
+      "label_sha256": "4d4447c12fd461e0258a0468fc8c41c683978a759e1ccb1181805633886ab8d3",
+      "split": "test",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses."
+    },
+    {
+      "capture_group": "case-012",
+      "category": "http-error",
+      "id": "case-012",
+      "input": "inputs/case-012.json",
+      "input_sha256": "90c877c215c0d68dea37592331643c8bdc484d92d26ca71ae3df3323410a359f",
+      "label": "labels/case-012.json",
+      "label_sha256": "165ecc8a8264315571cb5b14815387c670826a6095a4c94532808a283926cf8d",
+      "split": "test",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses."
+    },
+    {
+      "capture_group": "case-013",
+      "category": "missing-evidence",
+      "id": "case-013",
+      "input": "inputs/case-013.json",
+      "input_sha256": "e813445a2d0d3ba9bbf0b5daeaaffb67e305bb3b8cb6e29dd2fee4f5525d36b8",
+      "label": "labels/case-013.json",
+      "label_sha256": "82869b1152c17d35a6912127bc85ef480c2c27a395bf47a8fd1e4cdeb93a3b76",
+      "split": "dev",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses. Remove payment telemetry; checkout timeout symptoms alone cannot establish payment execution time."
+    },
+    {
+      "capture_group": "case-014",
+      "category": "missing-evidence",
+      "id": "case-014",
+      "input": "inputs/case-014.json",
+      "input_sha256": "2d393f5b3ad2c653ceedb64be6358d06f08a750ab01f97d65bfc92ebee619311",
+      "label": "labels/case-014.json",
+      "label_sha256": "71aeb58682d8f36c7b64b2feaf4f2d2df6aea196987cbcab3d2f4626104ad6fe",
+      "split": "dev",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses. Replace payment trace IDs, leaving no correlated dependency observations."
+    },
+    {
+      "capture_group": "case-015",
+      "category": "missing-evidence",
+      "id": "case-015",
+      "input": "inputs/case-015.json",
+      "input_sha256": "be7d53ccba3ecc5d1c5a8b62da14a8b1cbcbf8be7f7ff6339a9cdd281bb34f68",
+      "label": "labels/case-015.json",
+      "label_sha256": "7ac2303cca710a8597233d0d9521541c656aec12fdb9171fc901d0409aa06f0a",
+      "split": "test",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses. Remove payment telemetry; checkout timeout symptoms alone cannot establish payment execution time."
+    },
+    {
+      "capture_group": "case-016",
+      "category": "missing-evidence",
+      "id": "case-016",
+      "input": "inputs/case-016.json",
+      "input_sha256": "5c1e47af523faaf45d909405b16e680dc10c335506be49d7b7ff3dbe47103275",
+      "label": "labels/case-016.json",
+      "label_sha256": "c62b528a5d46e53f73121bd75eab4f1475c1bb4d151ac2bd7bdd6e35d6f0a5ee",
+      "split": "test",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses. Replace payment trace IDs, leaving no correlated dependency observations."
+    },
+    {
+      "capture_group": "case-017",
+      "category": "distractor-or-conflict",
+      "id": "case-017",
+      "input": "inputs/case-017.json",
+      "input_sha256": "3629a9e969e61a87368cc38324ace6c79ce1a3f376eb824603d0a25e0dabb65a",
+      "label": "labels/case-017.json",
+      "label_sha256": "a0ab7377f4e833ac5445afab38a5e62fe78ff90d58064e66795a7d993a87fb6b",
+      "split": "dev",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses. Append an unrelated synthetic search-service error span."
+    },
+    {
+      "capture_group": "case-018",
+      "category": "distractor-or-conflict",
+      "id": "case-018",
+      "input": "inputs/case-018.json",
+      "input_sha256": "a8fdb662ffbffc1526aae1ff6b1b988ea97aabff340a94318a612b6be31ea9cb",
+      "label": "labels/case-018.json",
+      "label_sha256": "a7826cfcfcb3918dff22ac27f4e5c0b46b14355f3d48aeb3ac546c310bfd2d70",
+      "split": "dev",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses. Append contradictory success records for the SAME checkout span IDs. Do not resolve exporter conflicts by guessing."
+    },
+    {
+      "capture_group": "case-019",
+      "category": "distractor-or-conflict",
+      "id": "case-019",
+      "input": "inputs/case-019.json",
+      "input_sha256": "b422970ffc12026cfaeb70bf01ea39f68025112f4eacce744836de3a8c144c81",
+      "label": "labels/case-019.json",
+      "label_sha256": "9512ede96694102fd08bdad2e81f7d683e33c0d249b7d4ab4731e79e7983df4f",
+      "split": "test",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses. Append an unrelated synthetic search-service error span."
+    },
+    {
+      "capture_group": "case-020",
+      "category": "distractor-or-conflict",
+      "id": "case-020",
+      "input": "inputs/case-020.json",
+      "input_sha256": "4182f1226b875dd68ad6adbcd31a15c3aa4462808abcea6c761787ca0cdfabf9",
+      "label": "labels/case-020.json",
+      "label_sha256": "b22f8d625588d97d3729a61fee6e260721358f6b1f0431505f1e6aa0cca84b88",
+      "split": "test",
+      "transformation": "Normalize timestamps and trace IDs only; retain measured durations and statuses. Append contradictory success records for the SAME checkout span IDs. Do not resolve exporter conflicts by guessing."
+    }
+  ],
+  "dataset_version": "v1",
+  "generation": "python3 -m scripts.generate_benchmark --output <new-directory>",
+  "limitations": "Independent local captures; repeated fault families across splits. Small benchmark, not production or unseen-family generalization.",
+  "schema_version": 1
+}

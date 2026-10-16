@@ -6,7 +6,8 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .agent import investigate
+from .agent import investigate, prompt_only
+from .benchmark import load_dataset, replay
 from .evidence import EvidenceStore, metrics
 from .investigate import baseline
 from .lab import capture
@@ -16,11 +17,11 @@ from .report import save_bundle
 def run(snapshot, mode, model, output):
     store = EvidenceStore(snapshot)
     started = time.perf_counter()
-    if mode == "llm":
-        report, usage = investigate(store, model)
+    if mode in ("llm", "prompt-only"):
+        report, usage = (investigate if mode == "llm" else prompt_only)(store, model)
     else:
         report, usage = baseline(store), {"input_tokens": 0, "output_tokens": 0}
-    execution = {"mode": mode, "model": model if mode == "llm" else None,
+    execution = {"mode": mode, "model": model if mode != "baseline" else None,
                  "duration_seconds": round(time.perf_counter() - started, 3), "usage": usage,
                  "citation_check": "retrieved IDs only; semantic support not automatically verified",
                  "service_metrics": metrics(snapshot)}
@@ -34,7 +35,7 @@ def main():
     default_output = "artifacts/" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
     for command in ("demo", "investigate", "evaluate"):
         child = sub.add_parser(command)
-        child.add_argument("--mode", choices=["baseline", "llm"], default="baseline")
+        child.add_argument("--mode", choices=["baseline", "llm", "prompt-only"], default="baseline")
         child.add_argument("--model", default=os.environ.get("ANTHROPIC_MODEL"))
         child.add_argument("--output", default=default_output)
         if command == "demo":
@@ -42,9 +43,35 @@ def main():
             child.add_argument("--requests", type=int, default=6)
         elif command == "investigate":
             child.add_argument("snapshot", type=Path)
+    validate = sub.add_parser("validate-dataset", help="Validate snapshot/label schemas, hashes, and split isolation")
+    validate.add_argument("manifest", type=Path)
+    benchmark = sub.add_parser("benchmark", help="Replay fixed inputs without recapturing traffic")
+    benchmark.add_argument("manifest", type=Path)
+    benchmark.add_argument("--modes", nargs="+", choices=["baseline", "llm", "prompt-only"], default=["baseline"])
+    benchmark.add_argument("--split", choices=["dev", "test", "all"], default="dev")
+    benchmark.add_argument("--repeats", type=int, default=3, help="LLM repetitions; baseline runs once")
+    benchmark.add_argument("--model", default=os.environ.get("ANTHROPIC_MODEL"))
+    benchmark.add_argument("--output", default=default_output)
+    benchmark.add_argument("--max-api-calls", type=int, default=100)
+    benchmark.add_argument("--max-total-tokens", type=int, default=100000,
+                           help="Observed usage stop threshold between requests; last request can overshoot")
     args = parser.parse_args()
     try:
-        if args.mode == "llm" and (not args.model or not os.environ.get("ANTHROPIC_API_KEY")):
+        if args.command == "validate-dataset":
+            _, cases = load_dataset(args.manifest)
+            print("Validated %s cases (schemas, hashes, and split isolation)." % len(cases))
+            return 0
+        if args.command == "benchmark":
+            if any(m != "baseline" for m in args.modes) and (not args.model or not os.environ.get("ANTHROPIC_API_KEY")):
+                raise ValueError("LLM comparison needs ANTHROPIC_API_KEY and --model (or ANTHROPIC_MODEL).")
+            result = replay(args.manifest, args.output, args.modes, args.split, args.repeats,
+                            args.model, args.max_api_calls, args.max_total_tokens)
+            for row in result["summary"]:
+                print("{mode}: {correct_status_and_service}/{scheduled} status + service matches; {failed} failed, {budget_skipped} budget-skipped".format(**row))
+            print("Results: " + str(Path(args.output).resolve() / "evaluation.md"))
+            # Semantic mismatches are findings, not infrastructure failures.
+            return 1 if any(r["outcome"] != "completed" for r in result["results"]) else 0
+        if args.mode != "baseline" and (not args.model or not os.environ.get("ANTHROPIC_API_KEY")):
             raise ValueError("LLM mode needs ANTHROPIC_API_KEY and --model (or ANTHROPIC_MODEL).")
         if args.command == "evaluate":
             results = []

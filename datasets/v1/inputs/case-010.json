@@ -1,0 +1,148 @@
+{
+  "captured_at": "2026-01-01T00:00:00+00:00",
+  "records": [
+    {
+      "dependency": "payment",
+      "id": "e0001",
+      "kind": "config",
+      "service": "checkout",
+      "timeout_ms": 150.0,
+      "timestamp": "2026-01-01T00:00:00+00:00"
+    },
+    {
+      "duration_ms": 12.56,
+      "id": "e0002",
+      "kind": "span",
+      "operation": "charge",
+      "service": "payment",
+      "span_id": "e0002",
+      "status": 503,
+      "timestamp": "2026-01-01T00:00:00.014380+00:00",
+      "trace_id": "trace-001"
+    },
+    {
+      "id": "e0003",
+      "kind": "log",
+      "level": "ERROR",
+      "message": "Provider unavailable",
+      "service": "payment",
+      "timestamp": "2026-01-01T00:00:00.014432+00:00",
+      "trace_id": "trace-001"
+    },
+    {
+      "dependency": "payment",
+      "id": "e0004",
+      "kind": "log",
+      "level": "ERROR",
+      "message": "upstream_http_503",
+      "service": "checkout",
+      "timeout_ms": 150.0,
+      "timestamp": "2026-01-01T00:00:00.015416+00:00",
+      "trace_id": "trace-001"
+    },
+    {
+      "duration_ms": 14.26,
+      "id": "e0005",
+      "kind": "span",
+      "operation": "checkout",
+      "service": "checkout",
+      "span_id": "e0005",
+      "status": 502,
+      "timestamp": "2026-01-01T00:00:00.015441+00:00",
+      "trace_id": "trace-001"
+    },
+    {
+      "duration_ms": 11.93,
+      "id": "e0006",
+      "kind": "span",
+      "operation": "charge",
+      "service": "payment",
+      "span_id": "e0006",
+      "status": 503,
+      "timestamp": "2026-01-01T00:00:00.029950+00:00",
+      "trace_id": "trace-002"
+    },
+    {
+      "id": "e0007",
+      "kind": "log",
+      "level": "ERROR",
+      "message": "Provider unavailable",
+      "service": "payment",
+      "timestamp": "2026-01-01T00:00:00.029996+00:00",
+      "trace_id": "trace-002"
+    },
+    {
+      "dependency": "payment",
+      "id": "e0008",
+      "kind": "log",
+      "level": "ERROR",
+      "message": "upstream_http_503",
+      "service": "checkout",
+      "timeout_ms": 150.0,
+      "timestamp": "2026-01-01T00:00:00.030870+00:00",
+      "trace_id": "trace-002"
+    },
+    {
+      "duration_ms": 14.02,
+      "id": "e0009",
+      "kind": "span",
+      "operation": "checkout",
+      "service": "checkout",
+      "span_id": "e0009",
+      "status": 502,
+      "timestamp": "2026-01-01T00:00:00.030903+00:00",
+      "trace_id": "trace-002"
+    },
+    {
+      "duration_ms": 11.06,
+      "id": "e0010",
+      "kind": "span",
+      "operation": "charge",
+      "service": "payment",
+      "span_id": "e0010",
+      "status": 503,
+      "timestamp": "2026-01-01T00:00:00.044800+00:00",
+      "trace_id": "trace-003"
+    },
+    {
+      "id": "e0011",
+      "kind": "log",
+      "level": "ERROR",
+      "message": "Provider unavailable",
+      "service": "payment",
+      "timestamp": "2026-01-01T00:00:00.044834+00:00",
+      "trace_id": "trace-003"
+    },
+    {
+      "dependency": "payment",
+      "id": "e0012",
+      "kind": "log",
+      "level": "ERROR",
+      "message": "upstream_http_503",
+      "service": "checkout",
+      "timeout_ms": 150.0,
+      "timestamp": "2026-01-01T00:00:00.045435+00:00",
+      "trace_id": "trace-003"
+    },
+    {
+      "duration_ms": 12.71,
+      "id": "e0013",
+      "kind": "span",
+      "operation": "checkout",
+      "service": "checkout",
+      "span_id": "e0013",
+      "status": 502,
+      "timestamp": "2026-01-01T00:00:00.045455+00:00",
+      "trace_id": "trace-003"
+    }
+  ],
+  "runbooks": [
+    {
+      "id": "rb-payment",
+      "text": "Correlate checkout and payment spans by trace_id. For timeouts, compare payment duration with checkout's configured timeout. A payment may finish after checkout times out; verify idempotency before retrying. Distinguish slow success from explicit upstream HTTP failures. Check provider health and recent changes before recommending a rollback.",
+      "title": "Checkout dependency failures"
+    }
+  ],
+  "schema_version": 1,
+  "source": "Local fake-payment HTTP lab; timestamps and trace IDs normalized. Benchmark variants may alter evidence; no production data."
+}

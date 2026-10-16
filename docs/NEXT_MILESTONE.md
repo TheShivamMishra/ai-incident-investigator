@@ -1,8 +1,15 @@
 # Milestone 2: measure the AI investigator
 
-Status: planned. The current milestone has a working local HTTP lab, a rule-based
-investigator, a Claude adapter tested with scripted responses, and 11 passing
-tests. Live model quality has not yet been measured.
+Status: offline evaluation infrastructure implemented. The repository now has
+20 hash-checked snapshots with separate labels, dev/test splits, schema checks,
+a replay runner, prompt-only comparison mode, budget accounting, human-review
+templates, and offline CI configuration. There are 23 passing local tests.
+The unchanged baseline matches status/service on 9/10 development cases.
+See [the results and known failure](BENCHMARK_RESULTS.md).
+
+Pending: independent label review, live Claude configuration and execution,
+human claim-support review, model pricing/cost estimates, held-out LLM evaluation,
+and a recorded demo. API credentials and a model are not configured locally.
 
 ## Goal
 
@@ -91,8 +98,9 @@ but cannot replace the initial human rubric.
 4. Evaluation, failure analysis, and documentation (3–4 hours).
 
 These are planning estimates. Dataset quality and model failures may require
-additional iterations. First implementation task: a versioned snapshot manifest
-and replay-based evaluation runner.
+additional iterations. Next execution task: configure the Claude API locally,
+run one saved development incident, and inspect its evidence and output before
+starting a budgeted comparison batch.
 
 ## After this milestone
 
