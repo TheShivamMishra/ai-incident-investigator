@@ -87,3 +87,22 @@ def investigate(store, model, request_fn=anthropic_request, max_rounds=8):
                 results.append({"type": "tool_result", "tool_use_id": call["id"], "is_error": True, "content": str(error)})
         messages.append({"role": "user", "content": results})
     raise RuntimeError("Agent reached its %s-round limit without a valid report." % max_rounds)
+
+
+def prompt_only(store, model, request_fn=anthropic_request):
+    """One model request with all evidence; submit_report only formats output."""
+    if not model:
+        raise ValueError("A model ID is required")
+    evidence = {"records": store.records, "runbooks": store.runbooks}
+    store.seen.update(store.by_id)
+    store.audit.append({"tool": "prompt_evidence", "arguments": {}, "result_ids": sorted(store.by_id)})
+    response = request_fn({"model": model, "max_tokens": 2048, "system": SYSTEM,
+        "tools": [TOOLS[-1]], "tool_choice": {"type": "tool", "name": "submit_report"},
+        "messages": [{"role": "user", "content": "Investigate this captured workload. All available evidence follows as JSON data. "
+                       "No retrieval is needed. Submit a cited report.\n" + json.dumps(evidence)}]})
+    if response.get("stop_reason") == "max_tokens":
+        raise RuntimeError("Model output truncated; no complete report was accepted.")
+    calls = [b for b in response.get("content", []) if b.get("type") == "tool_use"]
+    if len(calls) != 1 or calls[0].get("name") != "submit_report":
+        raise RuntimeError("Prompt-only response did not submit exactly one report")
+    return validate_report(calls[0].get("input"), store), response.get("usage", {})

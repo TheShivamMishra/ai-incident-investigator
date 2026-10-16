@@ -1,0 +1,88 @@
+{
+  "captured_at": "2026-01-01T00:00:00+00:00",
+  "records": [
+    {
+      "dependency": "payment",
+      "id": "e0001",
+      "kind": "config",
+      "service": "checkout",
+      "timeout_ms": 150.0,
+      "timestamp": "2026-01-01T00:00:00+00:00"
+    },
+    {
+      "dependency": "payment",
+      "id": "e0002",
+      "kind": "log",
+      "level": "ERROR",
+      "message": "upstream_timeout",
+      "service": "checkout",
+      "timeout_ms": 150.0,
+      "timestamp": "2026-01-01T00:00:00.152424+00:00",
+      "trace_id": "trace-001"
+    },
+    {
+      "duration_ms": 151.4,
+      "id": "e0003",
+      "kind": "span",
+      "operation": "checkout",
+      "service": "checkout",
+      "span_id": "e0003",
+      "status": 504,
+      "timestamp": "2026-01-01T00:00:00.152436+00:00",
+      "trace_id": "trace-001"
+    },
+    {
+      "dependency": "payment",
+      "id": "e0004",
+      "kind": "log",
+      "level": "ERROR",
+      "message": "upstream_timeout",
+      "service": "checkout",
+      "timeout_ms": 150.0,
+      "timestamp": "2026-01-01T00:00:00.304505+00:00",
+      "trace_id": "trace-002"
+    },
+    {
+      "duration_ms": 151.42,
+      "id": "e0005",
+      "kind": "span",
+      "operation": "checkout",
+      "service": "checkout",
+      "span_id": "e0005",
+      "status": 504,
+      "timestamp": "2026-01-01T00:00:00.304537+00:00",
+      "trace_id": "trace-002"
+    },
+    {
+      "duration_ms": 404.86,
+      "id": "e0006",
+      "kind": "span",
+      "operation": "charge",
+      "service": "payment",
+      "span_id": "e0006",
+      "status": 200,
+      "timestamp": "2026-01-01T00:00:00.406475+00:00",
+      "trace_id": "trace-001"
+    },
+    {
+      "duration_ms": 400.68,
+      "id": "e0007",
+      "kind": "span",
+      "operation": "charge",
+      "service": "payment",
+      "span_id": "e0007",
+      "status": 200,
+      "timestamp": "2026-01-01T00:00:00.554175+00:00",
+      "trace_id": "trace-002"
+    }
+  ],
+  "runbooks": [
+    {
+      "id": "rb-payment",
+      "text": "Correlate checkout and payment spans by trace_id. For timeouts, compare payment duration with checkout's configured timeout. A payment may finish after checkout times out; verify idempotency before retrying. Distinguish slow success from explicit upstream HTTP failures. Check provider health and recent changes before recommending a rollback.",
+      "title": "Checkout dependency failures"
+    }
+  ],
+  "schema_version": 1,
+  "source": "Local fake-payment HTTP lab; timestamps and trace IDs normalized. Benchmark variants may alter evidence; no production data."
+}

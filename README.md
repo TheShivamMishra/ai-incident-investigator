@@ -46,6 +46,10 @@ python3 -m incident_assistant investigate artifacts/first-incident/snapshot.json
 python3 -m incident_assistant evaluate --mode llm --output artifacts/llm-evaluation
 ```
 
+For a single-request comparison with all evidence provided directly, use
+`--mode prompt-only`. It uses `submit_report` for structured output but has no
+retrieval tools. Both LLM modes use the same report schema and citation checks.
+
 This allows a direct comparison on the same captured incident. The agent chooses
 between telemetry queries and keyword runbook search, then submits structured
 findings. It has no shell, file modification, or remediation tools. Each run has
@@ -78,7 +82,47 @@ Local HTTP workload → checkout → payment (injected delay/error)
 
 ## What the evaluation establishes
 
-The three-case smoke evaluation checks incident status and suspected service.
+The new fixed-input benchmark has **20 cases** (10 development, 10 test). It
+verifies hashes, input shape, and split isolation before running. Labels never
+enter investigator inputs. The unchanged rule baseline matched status/service
+on **9/10 development cases**; see [results and the conflict-handling failure](docs/BENCHMARK_RESULTS.md).
+
+```sh
+python3 -m incident_assistant validate-dataset datasets/v1/manifest.json
+python3 -m incident_assistant benchmark datasets/v1/manifest.json --output artifacts/dev-baseline
+```
+
+After setting API credentials and a model, compare on the same saved evidence:
+
+```sh
+python3 -m incident_assistant benchmark datasets/v1/manifest.json \
+  --modes baseline prompt-only llm --repeats 3 \
+  --max-api-calls 100 --max-total-tokens 100000 \
+  --output artifacts/dev-comparison
+```
+
+The baseline runs once per case; each LLM runs three times. Requests are
+interleaved by case/repetition. `--max-api-calls` is a hard request-count cap.
+The token threshold stops **between requests** after observed usage reaches the
+limit; the final request can exceed it. This is not a dollar spending cap. Failed
+API attempts may have unknown billed usage. Missing usage in a returned response
+halts further API requests. No dollar-cost estimate is invented without prices.
+
+Results include Markdown/JSON summaries, per-run reports, provider transcripts
+(without credentials), prompt/schema and source hashes, input hashes, usage, and
+`review.json` worksheets. Human grading of claims and failure mechanisms remains
+pending. Failed and budget-skipped cases stay visible in results. Existing output
+directories are never overwritten by `benchmark`. Exit status 1 means incomplete
+runs; completed but incorrect predictions are reported as evaluation findings.
+
+Use the default `dev` split for iteration. Run `--split test` only after freezing
+the prompt; `--split all` is also explicit. [Dataset provenance and limitations](datasets/v1/README.md)
+explain normalized timestamps, modified evidence, and shared fault templates.
+
+Offline CI runs tests, dataset validation, and development baseline replay with
+Python 3.9 and 3.12; it needs no API key. Provider tests use scripted responses.
+
+The original `evaluate` command remains a three-case smoke check using fresh traffic.
 Tests additionally exercise trace correlation, timeout versus HTTP-error
 diagnoses, abstention, invalid citations, model tool-result handling, and budget
 exhaustion. Provider tests use scripted responses; they do not measure LLM quality.

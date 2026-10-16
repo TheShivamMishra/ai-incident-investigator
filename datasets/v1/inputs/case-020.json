@@ -1,0 +1,242 @@
+{
+  "captured_at": "2026-01-01T00:00:00+00:00",
+  "records": [
+    {
+      "dependency": "payment",
+      "id": "e0001",
+      "kind": "config",
+      "service": "checkout",
+      "timeout_ms": 150.0,
+      "timestamp": "2026-01-01T00:00:00+00:00"
+    },
+    {
+      "dependency": "payment",
+      "id": "e0002",
+      "kind": "log",
+      "level": "ERROR",
+      "message": "upstream_timeout",
+      "service": "checkout",
+      "timeout_ms": 150.0,
+      "timestamp": "2026-01-01T00:00:00.153726+00:00",
+      "trace_id": "trace-001"
+    },
+    {
+      "duration_ms": 151.98,
+      "id": "e0003",
+      "kind": "span",
+      "operation": "checkout",
+      "service": "checkout",
+      "span_id": "e0003",
+      "status": 504,
+      "timestamp": "2026-01-01T00:00:00.153771+00:00",
+      "trace_id": "trace-001"
+    },
+    {
+      "dependency": "payment",
+      "id": "e0004",
+      "kind": "log",
+      "level": "ERROR",
+      "message": "upstream_timeout",
+      "service": "checkout",
+      "timeout_ms": 150.0,
+      "timestamp": "2026-01-01T00:00:00.306915+00:00",
+      "trace_id": "trace-002"
+    },
+    {
+      "duration_ms": 151.6,
+      "id": "e0005",
+      "kind": "span",
+      "operation": "checkout",
+      "service": "checkout",
+      "span_id": "e0005",
+      "status": 504,
+      "timestamp": "2026-01-01T00:00:00.306947+00:00",
+      "trace_id": "trace-002"
+    },
+    {
+      "duration_ms": 405.03,
+      "id": "e0006",
+      "kind": "span",
+      "operation": "charge",
+      "service": "payment",
+      "span_id": "e0006",
+      "status": 200,
+      "timestamp": "2026-01-01T00:00:00.407750+00:00",
+      "trace_id": "trace-001"
+    },
+    {
+      "dependency": "payment",
+      "id": "e0007",
+      "kind": "log",
+      "level": "ERROR",
+      "message": "upstream_timeout",
+      "service": "checkout",
+      "timeout_ms": 150.0,
+      "timestamp": "2026-01-01T00:00:00.459567+00:00",
+      "trace_id": "trace-003"
+    },
+    {
+      "duration_ms": 151.58,
+      "id": "e0008",
+      "kind": "span",
+      "operation": "checkout",
+      "service": "checkout",
+      "span_id": "e0008",
+      "status": 504,
+      "timestamp": "2026-01-01T00:00:00.459586+00:00",
+      "trace_id": "trace-003"
+    },
+    {
+      "duration_ms": 404.07,
+      "id": "e0009",
+      "kind": "span",
+      "operation": "charge",
+      "service": "payment",
+      "span_id": "e0009",
+      "status": 200,
+      "timestamp": "2026-01-01T00:00:00.560127+00:00",
+      "trace_id": "trace-002"
+    },
+    {
+      "dependency": "payment",
+      "id": "e0010",
+      "kind": "log",
+      "level": "ERROR",
+      "message": "upstream_timeout",
+      "service": "checkout",
+      "timeout_ms": 150.0,
+      "timestamp": "2026-01-01T00:00:00.611836+00:00",
+      "trace_id": "trace-004"
+    },
+    {
+      "duration_ms": 151.48,
+      "id": "e0011",
+      "kind": "span",
+      "operation": "checkout",
+      "service": "checkout",
+      "span_id": "e0011",
+      "status": 504,
+      "timestamp": "2026-01-01T00:00:00.611872+00:00",
+      "trace_id": "trace-004"
+    },
+    {
+      "duration_ms": 405.05,
+      "id": "e0012",
+      "kind": "span",
+      "operation": "charge",
+      "service": "payment",
+      "span_id": "e0012",
+      "status": 200,
+      "timestamp": "2026-01-01T00:00:00.713535+00:00",
+      "trace_id": "trace-003"
+    },
+    {
+      "dependency": "payment",
+      "id": "e0013",
+      "kind": "log",
+      "level": "ERROR",
+      "message": "upstream_timeout",
+      "service": "checkout",
+      "timeout_ms": 150.0,
+      "timestamp": "2026-01-01T00:00:00.765248+00:00",
+      "trace_id": "trace-005"
+    },
+    {
+      "duration_ms": 151.76,
+      "id": "e0014",
+      "kind": "span",
+      "operation": "checkout",
+      "service": "checkout",
+      "span_id": "e0014",
+      "status": 504,
+      "timestamp": "2026-01-01T00:00:00.765309+00:00",
+      "trace_id": "trace-005"
+    },
+    {
+      "duration_ms": 405.05,
+      "id": "e0015",
+      "kind": "span",
+      "operation": "charge",
+      "service": "payment",
+      "span_id": "e0015",
+      "status": 200,
+      "timestamp": "2026-01-01T00:00:00.865916+00:00",
+      "trace_id": "trace-004"
+    },
+    {
+      "duration_ms": 405.05,
+      "id": "e0016",
+      "kind": "span",
+      "operation": "charge",
+      "service": "payment",
+      "span_id": "e0016",
+      "status": 200,
+      "timestamp": "2026-01-01T00:00:01.019347+00:00",
+      "trace_id": "trace-005"
+    },
+    {
+      "duration_ms": 5.0,
+      "id": "conflict-e0003",
+      "kind": "span",
+      "operation": "checkout",
+      "service": "checkout",
+      "span_id": "e0003",
+      "status": 200,
+      "timestamp": "2026-01-01T00:00:00.153771+00:00",
+      "trace_id": "trace-001"
+    },
+    {
+      "duration_ms": 5.0,
+      "id": "conflict-e0005",
+      "kind": "span",
+      "operation": "checkout",
+      "service": "checkout",
+      "span_id": "e0005",
+      "status": 200,
+      "timestamp": "2026-01-01T00:00:00.306947+00:00",
+      "trace_id": "trace-002"
+    },
+    {
+      "duration_ms": 5.0,
+      "id": "conflict-e0008",
+      "kind": "span",
+      "operation": "checkout",
+      "service": "checkout",
+      "span_id": "e0008",
+      "status": 200,
+      "timestamp": "2026-01-01T00:00:00.459586+00:00",
+      "trace_id": "trace-003"
+    },
+    {
+      "duration_ms": 5.0,
+      "id": "conflict-e0011",
+      "kind": "span",
+      "operation": "checkout",
+      "service": "checkout",
+      "span_id": "e0011",
+      "status": 200,
+      "timestamp": "2026-01-01T00:00:00.611872+00:00",
+      "trace_id": "trace-004"
+    },
+    {
+      "duration_ms": 5.0,
+      "id": "conflict-e0014",
+      "kind": "span",
+      "operation": "checkout",
+      "service": "checkout",
+      "span_id": "e0014",
+      "status": 200,
+      "timestamp": "2026-01-01T00:00:00.765309+00:00",
+      "trace_id": "trace-005"
+    }
+  ],
+  "runbooks": [
+    {
+      "id": "rb-payment",
+      "text": "Correlate checkout and payment spans by trace_id. For timeouts, compare payment duration with checkout's configured timeout. A payment may finish after checkout times out; verify idempotency before retrying. Distinguish slow success from explicit upstream HTTP failures. Check provider health and recent changes before recommending a rollback.",
+      "title": "Checkout dependency failures"
+    }
+  ],
+  "schema_version": 1,
+  "source": "Local fake-payment HTTP lab; timestamps and trace IDs normalized. Benchmark variants may alter evidence; no production data."
+}

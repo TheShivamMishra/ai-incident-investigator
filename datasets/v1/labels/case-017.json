@@ -1,0 +1,23 @@
+{
+  "acceptable_uncertainty": "Describe observed symptoms, but do not assert a deeper provider cause or resolve contradictory span records without evidence.",
+  "evidence_ids": [
+    "e0001",
+    "e0002",
+    "e0003",
+    "e0004",
+    "e0005",
+    "e0006",
+    "e0007",
+    "distractor-1"
+  ],
+  "mechanism": "dependency_timeout",
+  "prohibited_claims": [
+    "A deployment caused the incident",
+    "Production customers or revenue were affected",
+    "A remediation was executed"
+  ],
+  "review_status": "author-defined; independent human review pending",
+  "rubric": "Normalize timestamps and trace IDs only; retain measured durations and statuses. Append an unrelated synthetic search-service error span.",
+  "status": "incident",
+  "suspected_service": "payment"
+}

@@ -1,11 +1,11 @@
 """Read-only tool boundary shared by the rule baseline and LLM agent."""
 import math
+from .schema import validate_snapshot
 
 
 class EvidenceStore:
     def __init__(self, snapshot):
-        if snapshot.get("schema_version") != 1:
-            raise ValueError("Unsupported snapshot schema")
+        validate_snapshot(snapshot)
         self.records = snapshot["records"]
         self.runbooks = snapshot["runbooks"]
         self.by_id = {item["id"]: item for item in self.records + self.runbooks}

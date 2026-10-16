@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "dataset_version": "v1",
+  "manifest_sha256": "d6f27e8223dc3386dc9b818b8e81c12e7ff5ecb990a80efd597807289360b8de",
+  "split": "dev",
+  "model": null,
+  "prompt_schema_sha256": "3d8c8d269fee00bfc689ec4ae24b18aa1fb57eecd76eaf923ef1ff368fc98e78",
+  "source_sha256": "4bc4081bc0402b09dbc93d05078b2dcf5d489a9ede36e53eacfb99888f851bd5",
+  "budget": {
+    "max_api_calls": 100,
+    "max_total_tokens": 100000,
+    "token_limit_semantics": "Stop between requests after observed usage reaches limit; the final request can overshoot."
+  },
+  "usage": {
+    "api_calls": 0,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  },
+  "summary": [
+    {
+      "mode": "baseline",
+      "scheduled": 10,
+      "attempted": 10,
+      "completed": 10,
+      "failed": 0,
+      "budget_skipped": 0,
+      "correct_status_and_service": 9,
+      "human_reviews_pending": 10
+    }
+  ],
+  "results": [
+    {
+      "case_id": "case-001",
+      "split": "dev",
+      "mode": "baseline",
+      "repeat": 1,
+      "input_sha256": "067be2cae93be2cb7e689b0b8fb9496a9d71b4ff3bc568d7b5699f1301ea88d5",
+      "artifact_dir": "case-001/baseline/1",
+      "outcome": "completed",
+      "status_correct": true,
+      "service_correct": true,
+      "citation_provenance_valid": true,
+      "duration_seconds": 2.4e-05,
+      "api_calls": 0,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "usage_complete": true,
+      "tool_calls": 4
+    },
+    {
+      "case_id": "case-002",
+      "split": "dev",
+      "mode": "baseline",
+      "repeat": 1,
+      "input_sha256": "ea384b0251ec07624988455308691272adb967506c282dc9fb336019218f4232",
+      "artifact_dir": "case-002/baseline/1",
+      "outcome": "completed",
+      "status_correct": true,
+      "service_correct": true,
+      "citation_provenance_valid": true,
+      "duration_seconds": 2.3e-05,
+      "api_calls": 0,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "usage_complete": true,
+      "tool_calls": 4
+    },
+    {
+      "case_id": "case-005",
+      "split": "dev",
+      "mode": "baseline",
+      "repeat": 1,
+      "input_sha256": "fee37763517c2b14dc193cfb1516c13a12dfabb47f2172ad3d77c945d73d0936",
+      "artifact_dir": "case-005/baseline/1",
+      "outcome": "completed",
+      "status_correct": true,
+      "service_correct": true,
+      "citation_provenance_valid": true,
+      "duration_seconds": 2.4e-05,
+      "api_calls": 0,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "usage_complete": true,
+      "tool_calls": 4
+    },
+    {
+      "case_id": "case-006",
+      "split": "dev",
+      "mode": "baseline",
+      "repeat": 1,
+      "input_sha256": "e30f8f72e22510acd6f63c152dd1a3374d1ea2c87ec35627e804b508e41d3ef6",
+      "artifact_dir": "case-006/baseline/1",
+      "outcome": "completed",
+      "status_correct": true,
+      "service_correct": true,
+      "citation_provenance_valid": true,
+      "duration_seconds": 2.4e-05,
+      "api_calls": 0,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "usage_complete": true,
+      "tool_calls": 4
+    },
+    {
+      "case_id": "case-009",
+      "split": "dev",
+      "mode": "baseline",
+      "repeat": 1,
+      "input_sha256": "8383d6eea656a63705e2c1631d65540aadda34bbb1a707c7be3aeeea81d8003b",
+      "artifact_dir": "case-009/baseline/1",
+      "outcome": "completed",
+      "status_correct": true,
+      "service_correct": true,
+      "citation_provenance_valid": true,
+      "duration_seconds": 2.3e-05,
+      "api_calls": 0,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "usage_complete": true,
+      "tool_calls": 4
+    },
+    {
+      "case_id": "case-010",
+      "split": "dev",
+      "mode": "baseline",
+      "repeat": 1,
+      "input_sha256": "a16242ed06a0c3770e3e4f83a001dd08379f14a98c5d05de9a9291a2d25f6432",
+      "artifact_dir": "case-010/baseline/1",
+      "outcome": "completed",
+      "status_correct": true,
+      "service_correct": true,
+      "citation_provenance_valid": true,
+      "duration_seconds": 2.6e-05,
+      "api_calls": 0,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "usage_complete": true,
+      "tool_calls": 4
+    },
+    {
+      "case_id": "case-013",
+      "split": "dev",
+      "mode": "baseline",
+      "repeat": 1,
+      "input_sha256": "e813445a2d0d3ba9bbf0b5daeaaffb67e305bb3b8cb6e29dd2fee4f5525d36b8",
+      "artifact_dir": "case-013/baseline/1",
+      "outcome": "completed",
+      "status_correct": true,
+      "service_correct": true,
+      "citation_provenance_valid": true,
+      "duration_seconds": 1.8e-05,
+      "api_calls": 0,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "usage_complete": true,
+      "tool_calls": 4
+    },
+    {
+      "case_id": "case-014",
+      "split": "dev",
+      "mode": "baseline",
+      "repeat": 1,
+      "input_sha256": "2d393f5b3ad2c653ceedb64be6358d06f08a750ab01f97d65bfc92ebee619311",
+      "artifact_dir": "case-014/baseline/1",
+      "outcome": "completed",
+      "status_correct": true,
+      "service_correct": true,
+      "citation_provenance_valid": true,
+      "duration_seconds": 2.8e-05,
+      "api_calls": 0,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "usage_complete": true,
+      "tool_calls": 4
+    },
+    {
+      "case_id": "case-017",
+      "split": "dev",
+      "mode": "baseline",
+      "repeat": 1,
+      "input_sha256": "3629a9e969e61a87368cc38324ace6c79ce1a3f376eb824603d0a25e0dabb65a",
+      "artifact_dir": "case-017/baseline/1",
+      "outcome": "completed",
+      "status_correct": true,
+      "service_correct": true,
+      "citation_provenance_valid": true,
+      "duration_seconds": 2.5e-05,
+      "api_calls": 0,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "usage_complete": true,
+      "tool_calls": 4
+    },
+    {
+      "case_id": "case-018",
+      "split": "dev",
+      "mode": "baseline",
+      "repeat": 1,
+      "input_sha256": "a8fdb662ffbffc1526aae1ff6b1b988ea97aabff340a94318a612b6be31ea9cb",
+      "artifact_dir": "case-018/baseline/1",
+      "outcome": "completed",
+      "status_correct": false,
+      "service_correct": false,
+      "citation_provenance_valid": true,
+      "duration_seconds": 2.8e-05,
+      "api_calls": 0,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "usage_complete": true,
+      "tool_calls": 4
+    }
+  ],
+  "estimated_cost_usd": null,
+  "cost_note": "No price table supplied; use recorded token usage and verified model pricing.",
+  "scope": "Automated scores cover status/service and citation provenance only. Mechanism and claim support require human review."
+}
